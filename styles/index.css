@@ -118,8 +118,7 @@ p:where(:not([class]):not(:last-child)) {
 /**
 	Упрощаем работу с изображениями и видео
    */
-img,
-video {
+img {
 	display: block;
 	max-width: 100%;
 	height: auto;
@@ -479,6 +478,7 @@ a {
 
 .thomas-image {
 	max-width: 50%;
+	filter: drop-shadow(10px 10px 50px rgb(107, 107, 107));
 }
 
 /*Адаптив Thomas*/
@@ -528,5 +528,367 @@ a {
 	.thomas:before {
 		width: 100%;
 		height: 2%;
+	}
+}
+
+/*Стилизация MacQueen*/
+.maqueen {
+	background: rgb(255, 255, 255);
+	background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(255, 114, 114, 1) 100%);
+	display: flex;
+	flex-direction: row;
+	padding-block: 10.87vh;
+	align-items: center;
+	justify-content: space-between;
+	padding-inline: 14.333vw;
+	position: relative;
+}
+
+.maqueen::after {
+	content: "";
+	display: block;
+	position: absolute;
+	width: 100%;
+	height: 10%;
+	bottom: 0;
+	left: 0;
+	background-image: url('/icons/Footer-human.svg');
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.maqueen-image {
+	width: 45%;
+	filter: drop-shadow(10px 10px 50px rgb(107, 107, 107));
+}
+
+.maqueen-info {
+	max-width: 50%;
+}
+
+.maqueen-info-title {
+	font-size: 2.2rem;
+	line-height: 1.5;
+	margin-bottom: 20px;
+	color: var(--pink-color);
+}
+
+.maqueen-info-subtitle {
+	font-size: 1.2rem;
+	margin-bottom: 20px;
+	color: var(--pink-color);
+}
+
+.maqueen-info-actions {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	column-gap: 20px;
+}
+
+.maqueen-info-buy-button {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	border: 2px solid var(--pink-color);
+	border-radius: 70px;
+	padding: 8px 12px 8px 30px;
+	font-size: 1.25rem;
+	column-gap: 14px;
+	transition: all 0.2s;
+	white-space: nowrap;
+	background-color: var(--pink-color);
+}
+
+.maqueen-info-buy-button:hover {
+	background-color: transparent;
+	border: 2px solid var(--white-color);
+}
+
+.maqueen-info-buy-button .circle svg path {
+	fill: var(--pink-color);
+}
+
+.maqueen-info-buy-button.alternate {
+	color: var(--white-color);
+	background-color: transparent;
+	border: 2px solid var(--white-color);
+}
+
+.maqueen-info-buy-button.alternate:hover {
+	background-color: var(--pink-color);
+
+	border: 2px solid var(--pink-color);
+}
+
+.maqueen-info-buy-button.alternate .circle {
+	background-color: var(--pink-color);
+}
+
+.maqueen-info-buy-button.alternate:hover .circle {
+	background-color: var(--white-color);
+}
+
+.maqueen-info-buy-button.alternate:hover .circle svg path {
+	fill: var(--pink-color);
+}
+
+.alternate .circle svg path {
+	fill: white;
+}
+
+/*Адаптив Maqueen*/
+@media(max-width:1384px) {
+	.maqueen-info-actions {
+		flex-direction: column;
+		row-gap: 20px;
+	}
+
+	.maqueen-info-buy-button {
+		width: 100%;
+		justify-content: space-between;
+	}
+}
+
+@media(max-width:1187px) {
+	.maqueen:after {
+		width: 100%;
+		height: 5%;
+	}
+}
+
+@media(max-width:900px) {
+	.maqueen-info {
+		max-width: none;
+		width: 100%;
+	}
+
+	.maqueen-image {
+		display: none;
+	}
+}
+
+@media(max-width:600px) {
+	.maqueen:after {
+		width: 100%;
+		height: 3%;
+	}
+}
+
+@media(max-width:500px) {
+	.maqueen-info-title {
+		font-size: 2rem;
+	}
+}
+
+@media(max-width:350px) {
+	.maqueen:after {
+		width: 100%;
+		height: 2%;
+	}
+}
+
+/*Стилизация Presentation*/
+.presentation {
+	background-color: var(--human-color);
+	padding-inline: 14.333vw;
+	padding-top: 8.887vh;
+}
+
+.presentation-card-container {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	column-gap: 40px;
+	margin-bottom: 50px;
+}
+
+.presentation-card {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	border-radius: 13px;
+	padding: 30px 26px;
+}
+
+.blue {
+	background-color: var(--blue-color);
+}
+
+.pink {
+	background-color: var(--pink-color);
+}
+
+.orange {
+	background-color: var(--orange-color);
+}
+
+.presentation-card-image {
+	margin-bottom: 20px;
+}
+
+.presentation-card-title {
+	margin-bottom: 20px;
+	text-align: center;
+}
+
+.presentation-card-subtitle {
+	text-align: center;
+}
+
+/*Видео-блок*/
+.presentation-video-container {
+	display: flex;
+	flex-direction: row;
+	column-gap: 60px;
+
+}
+
+.presentation-video {
+	border-radius: 15px;
+	width: 700px;
+	height: 700px;
+	object-fit: contain;
+}
+
+.presentation-video-info {
+	background-color: var(--blue-color);
+	border-radius: 15px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	padding-inline: 2.604vw;
+}
+
+.presentation-video-title {
+	font-size: 2.5rem;
+	margin-bottom: 20px;
+}
+
+.presentation-video-subtitle {
+	font-size: 1.25rem;
+	margin-bottom: 20px;
+}
+
+.presentation-video-actions {
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	column-gap: 20px;
+}
+
+.thomas-info-buy-button {
+	width: 100%;
+}
+
+/*Адаптация Presentation*/
+@media(max-width:1546px) {
+	.presentation-video-container {
+		align-items: center;
+	}
+
+	.presentation-video-info {
+		padding-block: 30px;
+	}
+
+	.presentation-video-actions {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+		row-gap: 20px;
+	}
+}
+
+@media(max-width:1340px) {
+	.presentation-video {
+		width: 400px;
+		height: 500px;
+		object-fit: contain;
+	}
+}
+
+@media(max-width:1224px) {
+	.presentation-video-title {
+		font-size: 2rem;
+		margin-bottom: 20px;
+	}
+
+	.presentation-video-subtitle {
+		font-size: 1rem;
+		margin-bottom: 20px;
+	}
+}
+
+@media(max-width:1150px) {
+	.presentation-video-container {
+		flex-direction: column;
+		row-gap: 30px;
+	}
+
+	.presentation-video {
+		width: 500px;
+		height: 600px;
+		object-fit: cover;
+	}
+
+	.presentation-card-container {
+		flex-direction: column;
+		row-gap: 20px;
+	}
+
+	.presentation-card {
+		display: grid;
+		grid-template-columns: auto 1fr;
+		padding: 30px;
+		align-items: center;
+		justify-content: center;
+		column-gap: 20px;
+	}
+
+	.presentation-card-subtitle {
+		grid-column: 2 /3;
+		text-align: left;
+		margin-bottom: 0;
+	}
+
+	.presentation-card-title {
+		text-align: left;
+		margin-bottom: 0;
+	}
+
+	.presentation-card-image {
+		grid-row: 1/3;
+	}
+}
+
+@media(max-width:715px) {
+	.presentation-video {
+		width: 300px;
+		height: 400px;
+		object-fit: cover;
+	}
+
+	.presentation-video-info {
+		padding-block: 20px;
+		padding: 20px;
+		text-align: center;
+	}
+}
+
+@media(max-width:530px) {
+	.presentation-video {
+		width: 250px;
+		height: 350px;
+		object-fit: cover;
+	}
+
+	.presentation-card-container {
+		flex-direction: column;
+		row-gap: 20px;
+	}
+
+	.presentation-card {
+		display: flex;
+		text-align: center;
 	}
 }
