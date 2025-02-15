@@ -275,9 +275,38 @@ a {
 
 .header-nav-item {
 	font-weight: 600;
+	position: relative;
 }
 
-.header-nav-link {}
+.header-nav-item:before {
+	content: "";
+	width: 0px;
+	height: 2px;
+	background-color: rgb(255, 255, 255);
+	position: absolute;
+	display: block;
+	bottom: -5px;
+	left: 0;
+	transition: all 0.2s;
+}
+
+.header-nav-item:hover:before {
+	width: 100%;
+}
+
+.header-nav-link {
+	position: relative;
+}
+
+.header-nav-link::before {
+	content: '';
+	position: absolute;
+	display: block;
+	top: -15px;
+	left: -25px;
+	right: -25px;
+	bottom: -15px;
+}
 
 .header-market-links {
 	display: flex;
@@ -286,14 +315,28 @@ a {
 	align-items: center;
 }
 
+.header-market-links a {
+	outline: 2px solid transparent;
+	padding: 5px;
+	border-radius: 10px;
+	transition: all 0.2s;
+}
+
+.header-market-links a:hover {
+	outline: 2px solid var(--white-color);
+	padding: 5px;
+	border-radius: 10px;
+}
+
+
 /*Адаптив Header*/
-@media(max-width:1000px) {
+@media(max-width:1030px) {
 	.header-nav-list {
 		column-gap: 30px;
 	}
 }
 
-@media(max-width:750px) {
+@media(max-width:865px) {
 	.header-nav-bar {
 		padding-block: 20px;
 		flex-wrap: wrap;
@@ -334,28 +377,30 @@ a {
 	position: relative;
 	height: 80vh;
 	padding-bottom: 100px;
+	padding-top: 50px;
 }
 
-.thomas:after {
+.thomas:before {
 	content: "";
 	display: block;
 	position: absolute;
-	min-width: 100%;
-	height: 113px;
+	width: 100%;
+	height: 10%;
 	bottom: 0;
 	left: 0;
 	background-image: url('/icons/Footer-white.svg');
 	background-repeat: no-repeat;
+	background-size: cover;
 }
 
 .thomas-info {
-	max-width: 600px;
+	max-width: 50%;
 }
 
 .thomas-info-title {
 	font-size: 2.2rem;
 	line-height: 1.5;
-	mix-blend-mode: 20px;
+	margin-bottom: 20px;
 }
 
 .thomas-info-subtitle {
@@ -380,9 +425,19 @@ a {
 	align-items: center;
 	justify-content: space-between;
 	column-gap: 14px;
+	transition: all 0.2s;
+	white-space: nowrap;
 
 }
 
+.thomas-info-buy-button:hover {
+	background-color: var(--white-color);
+	color: var(--blue-color);
+}
+
+.thomas-info-buy-button:hover .circle {
+	border: 2px solid var(--blue-color);
+}
 
 .circle {
 	border-radius: 50%;
@@ -392,6 +447,8 @@ a {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	border: 2px solid transparent;
+	transition: all 0.2s;
 }
 
 .circle svg path {
@@ -403,6 +460,15 @@ a {
 	color: var(--blue-color);
 }
 
+.alternate:hover {
+	background-color: transparent;
+	color: var(--white-color);
+}
+
+.alternate:hover .circle {
+	border: 2px solid var(--white-color);
+}
+
 .alternate .circle {
 	background-color: var(--blue-color);
 }
@@ -412,5 +478,55 @@ a {
 }
 
 .thomas-image {
-	max-width: 90%;
+	max-width: 50%;
+}
+
+/*Адаптив Thomas*/
+@media(max-width:1384px) {
+	.thomas-info-actions {
+		flex-direction: column;
+		row-gap: 20px;
+	}
+
+	.thomas-info-buy-button {
+		width: 100%;
+	}
+}
+
+@media(max-width:1187px) {
+	.thomas:before {
+		width: 100%;
+		height: 5%;
+	}
+}
+
+@media(max-width:900px) {
+	.thomas-info {
+		max-width: none;
+		width: 100%;
+	}
+
+	.thomas-image {
+		display: none;
+	}
+}
+
+@media(max-width:600px) {
+	.thomas:before {
+		width: 100%;
+		height: 3%;
+	}
+}
+
+@media(max-width:500px) {
+	.thomas-info-title {
+		font-size: 2rem;
+	}
+}
+
+@media(max-width:350px) {
+	.thomas:before {
+		width: 100%;
+		height: 2%;
+	}
 }
