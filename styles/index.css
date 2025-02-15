@@ -327,6 +327,11 @@ a {
 	border-radius: 10px;
 }
 
+.burger-button {
+	background-color: transparent;
+	border: 0;
+	display: none;
+}
 
 /*Адаптив Header*/
 @media(max-width:1030px) {
@@ -335,9 +340,42 @@ a {
 	}
 }
 
+@media(max-width:880px) {
+	.header-logo {
+		order: 3;
+	}
+
+	.burger-button {
+		display: block;
+		order: 1;
+		z-index: 1005;
+	}
+
+	.header-nav-list.active {
+		display: flex;
+		align-items: start;
+		justify-content: center;
+		font-size: 1.5rem;
+		row-gap: 20px;
+		width: 40%;
+		height: 100%;
+	}
+
+	.header-nav-list {
+		display: none;
+		flex-direction: column;
+		position: fixed;
+		top: 0;
+		right: 0;
+		background-color: var(--gray-color);
+		padding-left: 20px;
+		z-index: 1001;
+	}
+
+}
+
 @media(max-width:865px) {
 	.header-nav-bar {
-		padding-block: 20px;
 		flex-wrap: wrap;
 		row-gap: 20px;
 	}
@@ -358,6 +396,14 @@ a {
 		order: 1;
 		width: 100%;
 		justify-content: space-between;
+	}
+}
+
+@media(max-width:500px) {
+	.header-market-links {
+		order: 1;
+		width: 100%;
+		justify-content: space-around;
 	}
 }
 
@@ -693,6 +739,21 @@ a {
 	background-color: var(--human-color);
 	padding-inline: 14.333vw;
 	padding-top: 8.887vh;
+	padding-bottom: 15.887vh;
+	position: relative;
+}
+
+.presentation:after {
+	content: "";
+	display: block;
+	position: absolute;
+	width: 100%;
+	height: 7%;
+	bottom: 0;
+	left: 0;
+	background-image: url('/icons/Footer-gray.svg');
+	background-repeat: no-repeat;
+	background-size: cover;
 }
 
 .presentation-card-container {
@@ -782,6 +843,13 @@ a {
 }
 
 /*Адаптация Presentation*/
+@media (max-width:1582px) {
+	.presentation:after {
+		width: 100%;
+		height: 5%;
+	}
+}
+
 @media(max-width:1546px) {
 	.presentation-video-container {
 		align-items: center;
@@ -816,6 +884,13 @@ a {
 	.presentation-video-subtitle {
 		font-size: 1rem;
 		margin-bottom: 20px;
+	}
+}
+
+@media (max-width:1155px) {
+	.presentation:after {
+		width: 100%;
+		height: 2%;
 	}
 }
 
@@ -875,6 +950,19 @@ a {
 	}
 }
 
+@media(max-width:660px) {
+	.presentation:after {
+		display: none;
+	}
+}
+
+@media(max-width:600px) {
+	.presentation:after {
+		width: 100%;
+		height: 3%;
+	}
+}
+
 @media(max-width:530px) {
 	.presentation-video {
 		width: 250px;
@@ -890,5 +978,151 @@ a {
 	.presentation-card {
 		display: flex;
 		text-align: center;
+	}
+}
+
+@media(max-width:350px) {
+	.presentation:after {
+		width: 100%;
+		height: 2%;
+	}
+}
+
+/*Стилизация Footer*/
+.footer {
+	background-color: var(--gray-color);
+}
+
+.footer-nav-bar {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	padding: 20px 14.333vw 43px;
+	column-gap: 20px;
+}
+
+.footer-logo-link {}
+
+.footer-logo {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	column-gap: 13px;
+}
+
+.footer-logo span {
+	font-family: "Poppins";
+	font-weight: 600;
+	font-size: 1.5rem;
+}
+
+.footer-nav-list {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	column-gap: 90px;
+	font-size: 1.125rem;
+}
+
+.footer-nav-item {
+	font-weight: 600;
+	position: relative;
+}
+
+.footer-nav-item:before {
+	content: "";
+	width: 0px;
+	height: 2px;
+	background-color: rgb(255, 255, 255);
+	position: absolute;
+	display: block;
+	bottom: -5px;
+	left: 0;
+	transition: all 0.2s;
+}
+
+.footer-nav-item:hover:before {
+	width: 100%;
+}
+
+.footer-nav-link {
+	position: relative;
+}
+
+.footer-nav-link::before {
+	content: '';
+	position: absolute;
+	display: block;
+	top: -15px;
+	left: -25px;
+	right: -25px;
+	bottom: -15px;
+}
+
+.footer-market-links {
+	display: flex;
+	flex-direction: row;
+	column-gap: 20px;
+	align-items: center;
+}
+
+.footer-market-links a {
+	outline: 2px solid transparent;
+	padding: 5px;
+	border-radius: 10px;
+	transition: all 0.2s;
+}
+
+.footer-market-links a:hover {
+	outline: 2px solid var(--white-color);
+	padding: 5px;
+	border-radius: 10px;
+}
+
+/*Адаптация Footer*/
+@media(max-width:1035px) {
+	.footer-nav-list {
+		display: none;
+	}
+}
+
+@media(max-width:1030px) {
+	.header-nav-list {
+		column-gap: 30px;
+	}
+}
+
+
+@media(max-width:865px) {
+	.footer-nav-bar {
+		padding-block: 20px;
+		flex-wrap: wrap;
+		row-gap: 20px;
+	}
+
+	.footer-logo span {
+		font-size: 1.3rem;
+	}
+
+	.footer-nav-item {
+		font-size: 1rem;
+	}
+
+	.footer-logo img {
+		width: 40px;
+	}
+
+	.footer-nav-list {
+		order: 1;
+		width: 100%;
+		justify-content: space-between;
+	}
+}
+
+@media(max-width:375px) {
+	.footer-nav-bar {
+		flex-direction: column;
+		align-items: center;
 	}
 }
